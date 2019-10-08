@@ -2,6 +2,7 @@ package edu.temple.coloractivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Layout;
@@ -10,33 +11,34 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class PaletteActivity extends AppCompatActivity {
 
     Spinner colorPicker;
-    View layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String colors[] = {"Red", "Blue", "Green", "Yellow", "Cyan", "Grey", "Magenta", "Purple", "Cyan", "Silver", "Black"};
+        String colors[] = {"Select a color...", "White", "Red", "Blue", "Green", "Yellow", "Cyan", "Grey", "Magenta", "Purple", "Cyan", "Silver", "Black"};
 
         colorPicker = findViewById(R.id.colorPicker);
-        layout = findViewById(R.id.layoutID);
 
-        ColorAdapter adapter = new ColorAdapter(colors, MainActivity.this);
+        ColorAdapter adapter = new ColorAdapter(colors, PaletteActivity.this);
         colorPicker.setAdapter(adapter);
         colorPicker.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String color = (String)parent.getAdapter().getItem(position);
-                layout.setBackgroundColor(Color.parseColor(color));
+                if(position != 0) {
+                    String color = (String) parent.getAdapter().getItem(position);
+                    Intent intent = new Intent(PaletteActivity.this, CanvasActivity.class);
+                    intent.putExtra("edu.temple.coloractivity.COLOR", color);
+                    startActivity(intent);
+                }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
     }
