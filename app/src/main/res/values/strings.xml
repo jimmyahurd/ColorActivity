@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">ColorActivity</string>
+    <string-array name="colors">
+        <item>Select a color...</item>
+        <item>White</item>
+        <item>Red</item>
+        <item>Blue</item>
+        <item>Green</item>
+        <item>Yellow</item>
+        <item>Cyan</item>
+        <item>Grey</item>
+        <item>Magenta</item>
+        <item>Purple</item>
+        <item>Silver</item>
+        <item>Black</item>
+    </string-array>
+    <string-array name="backgrounds">
+        <item>Select a color...</item>
+        <item>White</item>
+        <item>Red</item>
+        <item>Blue</item>
+        <item>Green</item>
+        <item>Yellow</item>
+        <item>Cyan</item>
+        <item>Grey</item>
+        <item>Magenta</item>
+        <item>Purple</item>
+        <item>Silver</item>
+        <item>Black</item>
+    </string-array>
 </resources>

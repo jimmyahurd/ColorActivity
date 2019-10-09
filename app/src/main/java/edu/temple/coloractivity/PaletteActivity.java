@@ -14,23 +14,25 @@ import android.widget.TextView;
 public class PaletteActivity extends AppCompatActivity {
 
     Spinner colorPicker;
+    static String backgrounds[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String colors[] = {"Select a color...", "White", "Red", "Blue", "Green", "Yellow", "Cyan", "Grey", "Magenta", "Purple", "Cyan", "Silver", "Black"};
+        String colors[] = this.getResources().getStringArray(R.array.colors);
+        backgrounds = this.getResources().getStringArray(R.array.backgrounds);
 
         colorPicker = findViewById(R.id.colorPicker);
 
-        ColorAdapter adapter = new ColorAdapter(colors, PaletteActivity.this);
+        ColorAdapter adapter = new ColorAdapter(colors, backgrounds,PaletteActivity.this);
         colorPicker.setAdapter(adapter);
         colorPicker.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(position != 0) {
-                    String color = (String) parent.getAdapter().getItem(position);
+                    String color = PaletteActivity.backgrounds[position];
                     Intent intent = new Intent(PaletteActivity.this, CanvasActivity.class);
                     intent.putExtra("edu.temple.coloractivity.COLOR", color);
                     startActivity(intent);

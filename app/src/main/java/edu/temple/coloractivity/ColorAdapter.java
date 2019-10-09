@@ -9,10 +9,12 @@ import android.widget.TextView;
 
 public class ColorAdapter extends BaseAdapter {
     String[] colors;
+    String[] backgrounds;
     Context context;
 
-    public ColorAdapter(String[] colors, Context context){
+    public ColorAdapter(String[] colors, String[] backgrounds, Context context){
         this.colors = colors;
+        this.backgrounds = backgrounds;
         this.context = context;
     }
 
@@ -23,7 +25,7 @@ public class ColorAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return colors[position];
+        return backgrounds[position];
     }
 
     @Override
@@ -53,7 +55,7 @@ public class ColorAdapter extends BaseAdapter {
             toReturn.setLayoutParams(new ViewGroup.LayoutParams(0,0));
         }else {
             toReturn = getView(position, convertView, parent);
-            toReturn.setBackgroundColor(Color.parseColor(colors[position]));
+            toReturn.setBackgroundColor(Color.parseColor(backgrounds[position]));
         }
         return toReturn;
     }
