@@ -10,12 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".CanvasActivity"
-            android:label="CanvasActivity">
-        </activity>
-        <activity
-            android:name=".PaletteActivity"
-            android:label="PaletteActivity">
+            android:name=".ColorActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

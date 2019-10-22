@@ -41,7 +41,7 @@ public class ColorAdapter extends BaseAdapter {
         else
             toReturn = new TextView(context);
         toReturn.setText(colors[position]);
-        toReturn.setBackgroundColor(Color.WHITE);
+        toReturn.setBackgroundColor(Color.TRANSPARENT);
         toReturn.setTextSize(24);
         toReturn.setPadding(5,5,5,5);
         return toReturn;
